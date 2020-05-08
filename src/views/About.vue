@@ -1,26 +1,35 @@
 <template>
   <div class="about">
-    <button @click="change">change</button>
-    <h1>{{ title }}</h1>
+    <Button type="primary" @click="getDetail" id="detail">点击调用接口获取详情</Button>
     <router-link to="/">Home</router-link>
     <router-link to="/scroll">Scroll</router-link>
   </div>
 </template>
 <script>
-import { mapState, mapMutations, mapActions } from 'vuex'
+import { mapState, mapActions } from "vuex";
+import { Button } from "vant";
 export default {
-  computed:{
-    ...mapState(['title'])
+  computed: {
+    ...mapState("about", ["detail"])
   },
   created() {
-    this.getAxios()
+    // this.getDetail();
   },
   methods: {
-    ...mapMutations(['changeTitle']),
-    ...mapActions(['getAxios']),
-    change() {
-      this.changeTitle('hhhhh')
-    }
+    ...mapActions("about", ["getDetail"])
+  },
+  components: {
+    Button
   }
-}
+};
 </script>
+<style lang="less">
+.about {
+  height: 100vh;
+  font-size: 14px;
+}
+#detail {
+  font-size: 14px;
+}
+</style>
+

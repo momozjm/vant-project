@@ -1,7 +1,6 @@
 <template>
   <div class="home">
-    <router-link to="/about">About</router-link>
-    <router-link to="/scroll">Scroll</router-link>
+    <router-link to="/some">点击跳转到About页面</router-link>
     <HelloWorld msg="Welcome" />
   </div>
 </template>

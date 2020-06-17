@@ -1,13 +1,11 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import about from './modules/about'
-import scroll from './modules/scroll'
+import some from './modules/some'
 
 Vue.use(Vuex)
 
 export default new Vuex.Store({
   modules: {
-    about,
-    scroll
+    some
   },
 })

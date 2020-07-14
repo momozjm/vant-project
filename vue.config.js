@@ -1,3 +1,4 @@
+const webpack = require('webpack')
 module.exports = {
   lintOnSave: true,
   publicPath: '/',
@@ -14,6 +15,13 @@ module.exports = {
         ]
       }
     }
+  },
+  chainWebpack: config => {
+    // 优化moment 去掉国际化内容
+    config
+      .plugin('ignore')
+      // 忽略/moment/locale下的所有文件
+      .use(new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/))
   },
   devServer: {
     // development server port 8000
